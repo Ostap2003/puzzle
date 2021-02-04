@@ -1,5 +1,6 @@
 """ 
 Module that checks if the board is valid or not
+repo on Github: https://github.com/Ostap2003/puzzle
 """
 
 
