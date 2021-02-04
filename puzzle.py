@@ -7,6 +7,11 @@ repo on Github: https://github.com/Ostap2003/puzzle
 def check_rows(board: list) -> bool:
     """
     Checks if ther are no duplicates in each row of the board.
+
+    >>> check_rows(['**12', '1234', '2231'])
+    False
+    >>> check_rows(['**12', '1234', '2431'])
+    True
     """
     for row in range(len(board)):
         row_nums = set()
@@ -26,6 +31,11 @@ def check_rows(board: list) -> bool:
 def check_cols(board: list) -> bool:
     """
     Checks if there are no duplicates in the board's columns.
+
+    >>> check_cols(['**12', '1234', '2481'])
+    True
+    >>> check_cols(['**12', '1234', '1481'])
+    False
     """
     for col in range(len(board)):
         col_nums = set()
@@ -45,6 +55,20 @@ def check_cols(board: list) -> bool:
 def check_same_color_area(board: list) -> bool:
     """
     Checks the same colored areas in the board for duplicates.
+
+    >>> board = [\
+        "**** ****",\
+        "***1 ****",\
+        "**  3****",\
+        "* 4 1****",\
+        "     9 5 ",\
+        " 6  83  *",\
+        "3   1  **",\
+        "  8  2***",\
+        "  2  ****"\
+       ]
+    >>> check_same_color_area(board)
+    True
     """
     cursor = 0
     for col in range(len(board)):
@@ -60,8 +84,6 @@ def check_same_color_area(board: list) -> bool:
 
         if len(color_area) < 9:
             break
-
-        # print(color_area)
 
         col_area_num_entry = set()  # to check the nums entries
         for el in color_area:
@@ -80,8 +102,22 @@ def check_same_color_area(board: list) -> bool:
 def validate(board: list) -> bool:
     """
     Main functrion of the module.
-    Recieves board and checks if it is a valid one or not with
-    the help of other functions.
+    Recieves board and checks if it is a valid one or not
+    with the help of other functions.
+
+    >>> board = board = [\
+        "**** ****",\
+        "***1 ****",\
+        "**  3****",\
+        "* 4 1****",\
+        "     9 5 ",\
+        " 6  83  *",\
+        "3   1  **",\
+        "  8  2***",\
+        "  2  ****"\
+       ]
+    >>> validate(board)
+    False
     """
     if check_rows(board):
         if check_cols(board):
