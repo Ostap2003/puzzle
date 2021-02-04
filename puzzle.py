@@ -1,4 +1,4 @@
-""" 
+"""
 Module that checks if the board is valid or not
 repo on Github: https://github.com/Ostap2003/puzzle
 """
@@ -15,13 +15,13 @@ def check_rows(board: list) -> bool:
     """
     for row in range(len(board)):
         row_nums = set()
-        for el in board[row]:
+        for elem in board[row]:
             try:
-                if isinstance(int(el), int):
-                    if int(el) in row_nums:
+                if isinstance(int(elem), int):
+                    if int(elem) in row_nums:
                         return False
                     else:
-                        row_nums.add(int(el))
+                        row_nums.add(int(elem))
             except ValueError:
                 pass
 
@@ -86,13 +86,13 @@ def check_same_color_area(board: list) -> bool:
             break
 
         col_area_num_entry = set()  # to check the nums entries
-        for el in color_area:
+        for elem in color_area:
             try:
-                if isinstance(int(el), int):
-                    if int(el) in col_area_num_entry:
+                if isinstance(int(elem), int):
+                    if int(elem) in col_area_num_entry:
                         return False
                     else:
-                        col_area_num_entry.add(int(el))
+                        col_area_num_entry.add(int(elem))
             except ValueError:
                 pass
 
